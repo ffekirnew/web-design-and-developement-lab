@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculator</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="box">
+            <input class="input" type="text" name="inp" id="inp1">            
+            <input class="input" type="text" name="inp" id="inp2">
+
+            <button id="button">enter</button>
+
+            <div class="output">
+                <h1>Output</h1>
+                <div class="box-o"></div>
+            </div>
+        </div>
+
+    </div>
+
+<script>
+    async function add(a, b) {
+        console.log(a, b);
+        const response = await fetch(
+            'http://localhost:3000/calculators/add',
+            {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    "first": a,
+                    "second": b,
+                }),
+            }
+        );
+        const data = await response.json();
+        console.log(data);
+    }
+
+    document.getElementById("button").addEventListener("click", event => {
+        const a = document.getElementById("inp1").value;
+        const b = document.getElementById("inp2").value;
+        add(a, b);
+    });
+</script>
+    
+</body>
+</html>

@@ -10,8 +10,8 @@ export class CalculatorsController {
    * @param numbers the numbers to be added
    * @returns 
    */
-  @Get('/add')
-  adder(@Body() numbers: { first: number, second: number }) {
+  @Post('/add')
+  adder(@Body() numbers: { first: string, second: string }) {
     const sum = this.calculatorsService.add(numbers.first, numbers.second);
     return { sum: sum };
   }

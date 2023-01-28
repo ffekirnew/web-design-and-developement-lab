@@ -4,11 +4,14 @@ import { Injectable } from '@nestjs/common';
 export class CalculatorsService {
     /**
      * adds two numbers
-     * @param num1 the first number
-     * @param num2 the first number
+     * @param first the first number
+     * @param second the first number
      * @returns the sum of the numbers
      */
-    add(num1: number, num2: number) {
+    add(first: string, second: string) {
+        const num1 = parseInt(first);
+        const num2 = parseInt(second);
+        
         return num1 + num2;
     }
 }
