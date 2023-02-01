@@ -70,7 +70,8 @@ for (let i = 0; i < buttons.length; i++) {
         if (values[i] === "=") {
             console.log(display.innerHTML);
             equation = extractSymbols(display.innerHTML);
-            display.innerHTML = request(equation);
+            console.log(request(equation));
+            display.innerHTML;
         }
         display.innerHTML = display.innerHTML + values[i];
     })
